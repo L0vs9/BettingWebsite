@@ -1,0 +1,75 @@
+.App {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.App-header {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-bottom: 1px solid #e9ecef;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.content {
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  border-bottom: 2px solid #007bff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin: 5px 0;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.bookmakers, .sports {
+  margin-top: 20px;
+}

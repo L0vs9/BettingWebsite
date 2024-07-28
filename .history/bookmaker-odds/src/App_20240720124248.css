@@ -1,0 +1,77 @@
+/* Container for all widgets */
+.widgets-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Overall widget styling */
+.widget {
+  width: 200px; /* Adjust the width to fit more widgets in a row */
+  height: 300px; /* Adjust the height as needed */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  margin: 10px; /* Adjust margin for better spacing */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styling */
+.widget-header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #0056b3;
+}
+
+.widget-header h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Content section styling */
+.widget-content {
+  padding: 10px;
+  overflow-y: auto; /* Make content scrollable if it exceeds the height */
+  flex: 1; /* Allow content to take up available space */
+}
+
+/* Individual match styling */
+.match h2 {
+  font-size: 1.2rem;
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.match p {
+  margin: 5px 0;
+}
+
+/* Bookmaker odds styling */
+.bookmaker {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.bookmaker h4 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+/* Error and Loading states */
+.widget-error, .widget-loading {
+  text-align: center;
+  padding: 15px;
+  color: #d9534f; /* Red color for error */
+}
+
+.widget-loading {
+  color: #5bc0de; /* Light blue color for loading */
+}
