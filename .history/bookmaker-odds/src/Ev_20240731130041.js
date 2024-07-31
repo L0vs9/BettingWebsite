@@ -11,32 +11,24 @@ const Ev = () => {
   const [selectedBet, setSelectedBet] = useState(null);
   const [wager, setWager] = useState("");
 
-  const fetchGames = async () => {
-    try {
-      const response = await fetch(
-        "https://bettingscraperodds.onrender.com/data"
-      );
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      setGames(Object.values(data));
-      console.log("Fetched games:", Object.values(data));
-    } catch (error) {
-      console.error("Error fetching game data:", error);
-    }
-  };
-
   useEffect(() => {
-    fetchGames(); // Fetch games initially
-    const interval = setInterval(fetchGames, 1000); // Fetch games every 10 seconds
-    return () => clearInterval(interval); // Cleanup interval on unmount
+    const fetchGames = async () => {
+      try {
+        const response = await fetch(
+          "https://bettingscraperodds.onrender.com/data"
+        );
+        const data = await response.json();
+        setGames(Object.values(data));
+      } catch (error) {
+        console.error("Error fetching game data:", error);
+      }
+    };
+
+    fetchGames();
   }, []);
 
   useEffect(() => {
-    if (games.length > 0) {
-      calculatePositiveEvBets();
-    }
+    calculatePositiveEvBets();
   }, [games]);
 
   const calculatePositiveEvBets = () => {
@@ -76,12 +68,19 @@ const Ev = () => {
         });
       });
 
+      // Sort bets for each game by highest win probability
       positiveBets[gameName].sort(
         (a, b) => parseFloat(b.winProbability) - parseFloat(a.winProbability)
       );
     });
 
     setPositiveEvBets(positiveBets);
+  };
+
+  const handleGameClick = (game) => {
+    setSelectedGame(game);
+    setSelectedBet(null);
+    setWager("");
   };
 
   const handleBetClick = (bet) => {

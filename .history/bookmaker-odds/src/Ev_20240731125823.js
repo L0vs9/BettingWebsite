@@ -16,27 +16,21 @@ const Ev = () => {
       const response = await fetch(
         "https://bettingscraperodds.onrender.com/data"
       );
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
       const data = await response.json();
       setGames(Object.values(data));
-      console.log("Fetched games:", Object.values(data));
     } catch (error) {
       console.error("Error fetching game data:", error);
     }
   };
 
   useEffect(() => {
-    fetchGames(); // Fetch games initially
-    const interval = setInterval(fetchGames, 1000); // Fetch games every 10 seconds
-    return () => clearInterval(interval); // Cleanup interval on unmount
+    fetchGames();
+    const interval = setInterval(fetchGames, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    if (games.length > 0) {
-      calculatePositiveEvBets();
-    }
+    calculatePositiveEvBets();
   }, [games]);
 
   const calculatePositiveEvBets = () => {

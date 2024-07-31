@@ -29,7 +29,7 @@ const Ev = () => {
 
   useEffect(() => {
     fetchGames(); // Fetch games initially
-    const interval = setInterval(fetchGames, 1000); // Fetch games every 10 seconds
+    const interval = setInterval(fetchGames, 30000); // Fetch games every 10 seconds
     return () => clearInterval(interval); // Cleanup interval on unmount
   }, []);
 
